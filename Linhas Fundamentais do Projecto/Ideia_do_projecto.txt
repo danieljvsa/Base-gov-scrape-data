@@ -1,0 +1,7 @@
+Verificar onde foram gastos 258.151.345,49 € ao longo dos anos do Município do Porto:
+ - Data de Celebração do Contrato
+ - Tipo de Contrato
+ - Objeto do Contrato
+ - Preço Contratual
+ - Entidade adjudicante (entidade que contratou serviços)
+ - Entidade adjudicatária (entidade que foi contratada)
