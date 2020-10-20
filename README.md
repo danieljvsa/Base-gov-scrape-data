@@ -2,7 +2,7 @@
 scrapedata from base.gov.pt
 
 How to install Python(Windows):
-Got to https://www.python.org/downloads/windows/ and downloa the Python 3.8.6
+Got to https://www.python.org/downloads/windows/ and download the Python 3.8.6
 
 How to install PIP(Windows): 
 python get-pip.py
