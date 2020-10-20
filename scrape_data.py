@@ -1,18 +1,16 @@
 from datetime import datetime, timedelta
 import requests
 from bs4 import BeautifulSoup
+import time
 import json
 import csv
 from lxml import html
-from streamlit import caching
+
 
 
 base_url = "http://www.base.gov.pt"
 
-#with open('Opencodez_Articles.csv', mode='w') as csv_file:
-#   fieldnames = ['Link']
-#   writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-#   writer.writeheader()
+
 
 def url_gap(dateStart, dateLast, days):
     dateStart = datetime.strptime(dateStart, "%Y-%m-%d")
@@ -40,20 +38,21 @@ def url_crawler(url):
     for links in urls:
         if(links.getText() == '+'):
             contract_urls.append(links.get('href'))
-    return contract_urls
     if(cruz):             
-        next_page = soup.find_all('a', class_= 'prev')[1]
-        next_page_partial = next_page.get('href')
+        next_page_partial = soup.find('div', class_='large-12 columns text-center pagination').find('p').find_all('a')[1]['href']
         next_page_url = base_url + next_page_partial
         print(next_page_url)
         url_crawler(next_page_url)
     else:
-        return contract_urls
-        
+      file = open("contratos.txt", "w")
+      file.write(str(contract_urls))
+      file.close() 
+      return contract_urls    
 dateStart = "2020-10-05"
 dateLast = "2020-10-06"
 days = 0
 
 url, dateStart_Date, dateLast_Date, dateStart, dateLast = url_gap(dateStart, dateLast, days)
 contract_urls = url_crawler(url)
-#print (contract_urls)
+for items in contract_urls:
+    print(str(contract_urls))
