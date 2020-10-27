@@ -28,7 +28,7 @@ def url_gap(dateStart, dateLast, days):
     )
     
     return url, dateStart_Date, dateLast_Date, dateStart, dateLast
-contract_urls =[]
+
 def url_crawler(url):
     page = requests.get(url)
     soup = BeautifulSoup(page.text, 'html.parser')
@@ -37,22 +37,71 @@ def url_crawler(url):
     urls = contract_list.find_all('a') 
     for links in urls:
         if(links.getText() == '+'):
-            contract_urls.append(links.get('href'))
+            data_crawler(links.get('href'))
     if(cruz):             
         next_page_partial = soup.find('div', class_='large-12 columns text-center pagination').find('p').find_all('a')[1]['href']
         next_page_url = base_url + next_page_partial
         print(next_page_url)
         url_crawler(next_page_url)
     else:
-      file = open("contratos.txt", "w")
-      file.write(str(contract_urls))
-      file.close() 
-      return contract_urls    
+      finalFile = open("contratos_dados.txt", "w") 
+      finalFile.write(str(contract_data_list))
+      finalFile.close()  
+contract_data_list = [] 
+def data_crawler(url):
+  page = requests.get(url)
+  soup = BeautifulSoup(page.text, 'html.parser')
+  table = soup.find('table')
+  row = table.find_all('tr')
+  contract_data_raw = row[11].find_all('td')[1].get_text()
+  if(contract_data_raw == '-' or contract_data_raw == 'O procedimento destina-se à satisfação de necessidades de várias Entidades'):
+    contract_data = row[13].find_all('td')[1].get_text()
+  else:
+    contract_data = contract_data_raw
+  contract_type = row[1].find_all('td')[1].get_text()
+  contract_object_title = row[10].find_all('td')[0].get_text(strip=True)
+  #print(contract_object_title)
+  if(contract_object_title == "CPV"):
+    contract_object = row[8].find_all('td')[1].get_text()
+    #print(contract_object_title)
+  else:
+    contract_object = row[10].find_all('td')[1].get_text()
+  contract_price_title = row[12].find_all('td')[0].get_text(strip=True)
+  if(contract_price_title == "Preço contratual"):
+    contract_price = row[12].find_all('td')[1].get_text()
+    #print(contract_object_title)
+  else:
+    contract_price = row[14].find_all('td')[1].get_text()
+  contracting_authority_title = row[6].find_all('td')[0].get_text(strip=True)
+  if(contracting_authority_title == "Entidade adjudicante - Nome, NIF"):
+    contracting_authority = row[6].find_all('td')[1].get_text(strip=True)
+    #print(contract_object_title)
+  else:
+    contracting_authority = row[8].find_all('td')[1].get_text(strip=True)
+  hired_entity_title = row[7].find_all('td')[0].get_text(strip=True)
+  #print(hired_entity_title)
+  if(hired_entity_title == "Entidade adjudicatária - Nome, NIF"):
+    hired_entity = row[7].find_all('td')[1].get_text(strip=True)
+    #print(contract_object_title)
+  else:
+    hired_entity = row[9].find_all('td')[1].get_text(strip=True)
+
+  contract_dict = {} 
+  contract_dict['Data de Celebração'] = contract_data
+  contract_dict['Tipo de Contrato'] = contract_type
+  contract_dict['Objeto do Contrato'] = contract_object
+  contract_dict['Preço Contratual'] = contract_price
+  contract_dict['Entidade adjudicante'] = contracting_authority
+  contract_dict['Entidade adjudicatária'] = hired_entity
+
+  contract_data_list.append(contract_dict)
+  return contract_data_list
+
+
+
 dateStart = "2020-10-05"
 dateLast = "2020-10-06"
 days = 0
 
 url, dateStart_Date, dateLast_Date, dateStart, dateLast = url_gap(dateStart, dateLast, days)
-contract_urls = url_crawler(url)
-for items in contract_urls:
-    print(str(contract_urls))
+url_crawler(url)
