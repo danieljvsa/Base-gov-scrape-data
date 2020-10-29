@@ -12,7 +12,7 @@ python scrape_data.py
 
 Libraries:
 Datetime pip install datetime,
-Requests - pip install requsts,
+Requests - pip install requests,
 BeautifulSoup (bs4) - pip install bs4,
 lxml - pip install lxml;
 
