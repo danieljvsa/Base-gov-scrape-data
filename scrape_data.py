@@ -3,15 +3,14 @@ import requests
 from bs4 import BeautifulSoup
 import time
 import json
-import csv
-from lxml import html
+
 
 
 
 base_url = "http://www.base.gov.pt"
 
-
-
+contract_data_list = [] 
+contracts_failed = []
 def url_gap(dateStart, dateLast, days):
     dateStart = datetime.strptime(dateStart, "%Y-%m-%d")
     dateStart_Date = dateStart + timedelta(days = days)     
@@ -33,45 +32,53 @@ def url_crawler(url):
     page = requests.get(url)
     soup = BeautifulSoup(page.text, 'html.parser')
     cruz = soup.find('span', class_="plusSign")
+    number_contracts = soup.find('span', class_='defaultColor strong').get_text(strip=True)
     contract_list = soup.find('table') 
     urls = contract_list.find_all('a') 
     for links in urls:
         if(links.getText() == '+'):
+          exception = url_errors(links.get('href'))
+          #print(exception)
+          if (exception == False):
             data_crawler(links.get('href'))
-    if(cruz):             
-        next_page_partial = soup.find('div', class_='large-12 columns text-center pagination').find('p').find_all('a')[1]['href']
-        next_page_url = base_url + next_page_partial
-        print(next_page_url)
-        url_crawler(next_page_url)
+          else:
+            contract_errors(links.get('href'))
+    if (cruz and int(number_contracts) > 23): 
+      next_page_partial = soup.find('div', class_='large-12 columns text-center pagination').find('p').find_all('a')[1]['href']
+      next_page_url = base_url + next_page_partial
+      print(next_page_url)
+      url_crawler(next_page_url)
     else:
-      finalFile = open("contratos_dados.txt", "w") 
-      finalFile.write(str(contract_data_list))
-      finalFile.close()  
-contract_data_list = [] 
+      contract_failed_file(contracts_failed)
+      contract_data_file(contract_data_list)
+      #finalFile = open("contratos_dados.txt", "w") 
+      #finalFile.write(str(contract_data_list))
+      #finalFile.close()  
+
 def data_crawler(url):
   page = requests.get(url)
   soup = BeautifulSoup(page.text, 'html.parser')
   table = soup.find('table')
   row = table.find_all('tr')
-  contract_data_raw = row[11].find_all('td')[1].get_text()
-  if(contract_data_raw == '-' or contract_data_raw == 'O procedimento destina-se à satisfação de necessidades de várias Entidades'):
-    contract_data = row[13].find_all('td')[1].get_text()
+  contract_data_raw = row[11].find_all('td')[0].get_text(strip=True)
+  if(contract_data_raw == 'Data de celebração do contrato'):
+    contract_data = row[11].find_all('td')[1].get_text(strip=True)
   else:
-    contract_data = contract_data_raw
-  contract_type = row[1].find_all('td')[1].get_text()
-  contract_object_title = row[10].find_all('td')[0].get_text(strip=True)
+    contract_data = row[13].find_all('td')[1].get_text(strip=True)
+  contract_type = row[1].find_all('td')[1].get_text(strip=True)
+  contract_object_title = row[8].find_all('td')[0].get_text(strip=True)
   #print(contract_object_title)
-  if(contract_object_title == "CPV"):
-    contract_object = row[8].find_all('td')[1].get_text()
+  if(contract_object_title == "Objeto do Contrato"):
+    contract_object = row[8].find_all('td')[1].get_text(strip=True)
     #print(contract_object_title)
   else:
-    contract_object = row[10].find_all('td')[1].get_text()
+    contract_object = row[10].find_all('td')[1].get_text(strip=True)
   contract_price_title = row[12].find_all('td')[0].get_text(strip=True)
   if(contract_price_title == "Preço contratual"):
-    contract_price = row[12].find_all('td')[1].get_text()
+    contract_price = row[12].find_all('td')[1].get_text(strip=True)
     #print(contract_object_title)
   else:
-    contract_price = row[14].find_all('td')[1].get_text()
+    contract_price = row[14].find_all('td')[1].get_text(strip=True)
   contracting_authority_title = row[6].find_all('td')[0].get_text(strip=True)
   if(contracting_authority_title == "Entidade adjudicante - Nome, NIF"):
     contracting_authority = row[6].find_all('td')[1].get_text(strip=True)
@@ -87,20 +94,56 @@ def data_crawler(url):
     hired_entity = row[9].find_all('td')[1].get_text(strip=True)
 
   contract_dict = {} 
-  contract_dict['Data de Celebração'] = contract_data
-  contract_dict['Tipo de Contrato'] = contract_type
-  contract_dict['Objeto do Contrato'] = contract_object
-  contract_dict['Preço Contratual'] = contract_price
-  contract_dict['Entidade adjudicante'] = contracting_authority
-  contract_dict['Entidade adjudicatária'] = hired_entity
+  contract_dict['contract_data'] = contract_data
+  contract_dict['contract_type'] = contract_type
+  contract_dict['contract_object'] = contract_object
+  contract_dict['contract_price'] = contract_price
+  contract_dict['contracting_authority'] = contracting_authority
+  contract_dict['hired_entity'] = hired_entity
 
   contract_data_list.append(contract_dict)
   return contract_data_list
 
-
-
+def url_errors(url):
+  tries = 0
+  exception = True
+  while(exception and tries < 15):
+    try:
+      html = requests.get(url, timeout = 60)
+      if html.status_code == 500:
+        tries = tries + 1 
+        html.raise_for_status()
+      exception = False
+    except requests.exceptions.HTTPError:
+      print('Error 500, Reconnecting...')
+      print(tries)
+      time.sleep(1)
+      exception = True
+    except requests.ConnectionError:
+      print('Connection Error, Reconnecting...')
+      time.sleep(30)
+      exception = True
+    except requests.RequestException:
+      print('Handling RequstException, Reconnecing...')
+      time.sleep(30)
+      exception = True
+    except requests.Timeout:
+      print('TimeOut Error, Reconnecting...')
+      time.sleep(30)
+      exception = True
+  return exception
+def contract_errors(url):
+  contracts_failed.append(url)
+  return contracts_failed
+def contract_data_file(contract_data_list):
+  with open("contratos_dados.json", "w") as writeJSON:
+    json.dump(contract_data_list, writeJSON, ensure_ascii=False, indent=4)
+def contract_failed_file(contracts_failed):
+  File = open("contratos_falhados.txt", "w") 
+  File.write(str(contracts_failed))
+  File.close()
 dateStart = "2020-10-05"
-dateLast = "2020-10-06"
+dateLast = "2020-10-05"
 days = 0
 
 url, dateStart_Date, dateLast_Date, dateStart, dateLast = url_gap(dateStart, dateLast, days)

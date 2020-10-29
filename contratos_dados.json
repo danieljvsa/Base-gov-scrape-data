@@ -1,0 +1,34 @@
+[
+    {
+        "contract_data": "05-10-2020",
+        "contract_type": "Aquisição de serviços",
+        "contract_object": "FORNECIMENTO DE SERVIÇOS PARA ACOMPANHAMENTO ARQUEOLÓGICO",
+        "contract_price": "7.600,00 €",
+        "contracting_authority": "Município de Arraiolos (501258027)",
+        "hired_entity": "Engobe - Arqueologia e Património Cultural, Unipessoal, Lda. (513432795)"
+    },
+    {
+        "contract_data": "05-10-2020",
+        "contract_type": "Aquisição de serviços",
+        "contract_object": "Aquisição de Serviços de Calibração de Equipamentos do Laboratório da Água da Universidade de Évora",
+        "contract_price": "1.294,86 €",
+        "contracting_authority": "Universidade de Évora (501201920)",
+        "hired_entity": "ISQ - INSTITUTO DE SOLDADURA E QUALIDADE (500140022)"
+    },
+    {
+        "contract_data": "05-10-2020",
+        "contract_type": "Aquisição de bens móveis",
+        "contract_object": "3020019573/3002/Fornecimento de Material de Pintura para Bica Oficial de Dia",
+        "contract_price": "43,20 €",
+        "contracting_authority": "Ministério da Defesa Nacional - Marinha (600012662)",
+        "hired_entity": "ADOCEQUIPA - EQUIPAMENTOS (504725360)"
+    },
+    {
+        "contract_data": "05-10-2020",
+        "contract_type": "Aquisição de serviços",
+        "contract_object": "Aquisição de serviços para intervenção arqueológica na Capela de Santiago",
+        "contract_price": "6.430,00 €",
+        "contracting_authority": "Município de Ponte de Lima (506811913)",
+        "hired_entity": "Mola Olivarum Cultura e Património, Lda (505719649)"
+    }
+]
