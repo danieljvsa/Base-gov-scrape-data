@@ -19,15 +19,14 @@ This turns to be the search period of time for crawler.
 
 Libraries:
 
-
 Datetime - pip install datetime,
 
-Requests - pip install requsts,
-
-=======
-Datetime pip install datetime,
 Requests - pip install requests,
->>>>>>> origin/main
+
+Datetime pip install datetime,
+
+Requests - pip install requests,
+
 BeautifulSoup (bs4) - pip install bs4,
 
 lxml - pip install lxml;
