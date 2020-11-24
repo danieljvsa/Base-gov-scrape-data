@@ -28,14 +28,19 @@ def url_gap(dateStart, dateLast, days):
     )
 
     return url, dateStart_Date, dateLast_Date, dateStart, dateLast
+dateStart = sys.argv[1]
+dateLast = sys.argv[2]
+days = 0
 
-
+url, dateStart_Date, dateLast_Date, dateStart, dateLast = url_gap(
+    dateStart, dateLast, days)
+page = requests.get(url)
+soup = BeautifulSoup(page.text, 'html.parser')
+number_contracts = soup.find('span', class_='defaultColor strong').get_text(strip=True)
 def url_crawler(url):
     page = requests.get(url)
     soup = BeautifulSoup(page.text, 'html.parser')
     cruz = soup.find('span', class_="plusSign")
-    number_contracts = soup.find(
-        'span', class_='defaultColor strong').get_text(strip=True)
     contract_list = soup.find('table')
     urls = contract_list.find_all('a')
     for links in urls:
@@ -66,39 +71,46 @@ def data_crawler(url):
     soup = BeautifulSoup(page.text, 'html.parser')
     table = soup.find('table')
     row = table.find_all('tr')
-    contract_data_raw = row[11].find_all('td')[0].get_text(strip=True)
-    if (contract_data_raw == 'Data de celebração do contrato'):
-        contract_data = row[11].find_all('td')[1].get_text(strip=True)
-    else:
-        contract_data = row[13].find_all('td')[1].get_text(strip=True)
-    contract_type = row[1].find_all('td')[1].get_text(strip=True)
-    contract_object_title = row[8].find_all('td')[0].get_text(strip=True)
-    #print(contract_object_title)
-    if (contract_object_title == "Objeto do Contrato"):
-        contract_object = row[8].find_all('td')[1].get_text(strip=True)
+    if (len(row) > 14):
+        contract_data_raw = row[11].find_all('td')[0].get_text(strip=True)
+        if (contract_data_raw == 'Data de celebração do contrato'):
+            contract_data = row[11].find_all('td')[1].get_text(strip=True)
+        else:
+            contract_data = row[13].find_all('td')[1].get_text(strip=True)
+        contract_type = row[1].find_all('td')[1].get_text(strip=True)
+        contract_object_title = row[8].find_all('td')[0].get_text(strip=True)
         #print(contract_object_title)
+        if (contract_object_title == "Objeto do Contrato"):
+            contract_object = row[8].find_all('td')[1].get_text(strip=True)
+            #print(contract_object_title)
+        else:
+            contract_object = row[10].find_all('td')[1].get_text(strip=True)
+        contract_price_title = row[12].find_all('td')[0].get_text(strip=True)
+        if (contract_price_title == "Preço contratual"):
+            contract_price = row[12].find_all('td')[1].get_text(strip=True)
+            #print(contract_object_title)
+        else:
+            contract_price = row[14].find_all('td')[1].get_text(strip=True)
+        contracting_authority_title = row[6].find_all('td')[0].get_text(strip=True)
+        if (contracting_authority_title == "Entidade adjudicante - Nome, NIF"):
+            contracting_authority = row[6].find_all('td')[1].get_text(strip=True)
+            #print(contract_object_title)
+        else:
+            contracting_authority = row[8].find_all('td')[1].get_text(strip=True)
+        hired_entity_title = row[7].find_all('td')[0].get_text(strip=True)
+        #print(hired_entity_title)
+        if (hired_entity_title == "Entidade adjudicatária - Nome, NIF"):
+            hired_entity = row[7].find_all('td')[1].get_text(strip=True)
+            #print(contract_object_title)
+        else:
+            hired_entity = row[9].find_all('td')[1].get_text(strip=True)
     else:
-        contract_object = row[10].find_all('td')[1].get_text(strip=True)
-    contract_price_title = row[12].find_all('td')[0].get_text(strip=True)
-    if (contract_price_title == "Preço contratual"):
-        contract_price = row[12].find_all('td')[1].get_text(strip=True)
-        #print(contract_object_title)
-    else:
-        contract_price = row[14].find_all('td')[1].get_text(strip=True)
-    contracting_authority_title = row[6].find_all('td')[0].get_text(strip=True)
-    if (contracting_authority_title == "Entidade adjudicante - Nome, NIF"):
-        contracting_authority = row[6].find_all('td')[1].get_text(strip=True)
-        #print(contract_object_title)
-    else:
-        contracting_authority = row[8].find_all('td')[1].get_text(strip=True)
-    hired_entity_title = row[7].find_all('td')[0].get_text(strip=True)
-    #print(hired_entity_title)
-    if (hired_entity_title == "Entidade adjudicatária - Nome, NIF"):
-        hired_entity = row[7].find_all('td')[1].get_text(strip=True)
-        #print(contract_object_title)
-    else:
-        hired_entity = row[9].find_all('td')[1].get_text(strip=True)
-
+        contract_data = " "
+        contract_type = " "
+        contract_object = " "
+        contract_price = " "
+        contracting_authority = " "
+        hired_entity = " "
     contract_dict = {}
     contract_dict['contract_data'] = contract_data
     contract_dict['contract_type'] = contract_type
@@ -147,7 +159,7 @@ def contract_errors(url):
 
 
 def contract_data_file(contract_data_list):
-    with open("contratos_dados.json", "w") as writeJSON:
+    with open("contratos_dados.json", "w", encoding='utf-8') as writeJSON:
         json.dump(contract_data_list, writeJSON, ensure_ascii=False, indent=4)
 
 
@@ -157,11 +169,6 @@ def contract_failed_file(contracts_failed):
     File.close()
 
 
-dateStart = sys.argv[1]
-dateLast = sys.argv[2]
-days = 0
 
-url, dateStart_Date, dateLast_Date, dateStart, dateLast = url_gap(
-    dateStart, dateLast, days)
 url_crawler(url)
 

@@ -1,6 +1,166 @@
 [
     {
         "contract_data": "06-10-2020",
+        "contract_type": "Aquisição de serviços",
+        "contract_object": "Aquisição de serviços de transporte em táxi ou ambulância para alunos com necessidades educativas especiais para as Unidades de Ensino Estruturado - Rota 4",
+        "contract_price": "6.219,08 €",
+        "contracting_authority": "Agrupamento de Escolas de Mira (600076067)",
+        "hired_entity": "Mickael Oliveira (237217520)"
+    },
+    {
+        "contract_data": "06-10-2020",
+        "contract_type": "Aquisição de serviços",
+        "contract_object": "Aquisição de serviços de um técnico de projeto no âmbito do Projeto SERzinho Norte – Sensibilizar e Educar para os Relacionamentos no Pré-escolar, com o n.º POISE-03-446-FSE-000936, ao abrigo da Tipologia 3.16 – Apoio financeiro e técnico a organizações da sociedade civil sem fins lucrativos, ambas as operações ao abrigo do Programa Operacional Inclusão Social e Emprego (POISE)",
+        "contract_price": "12.375,00 €",
+        "contracting_authority": "Associação Portuguesa de Apoio à Vítima (502547952)",
+        "hired_entity": "Mariana Teixeira Cardoso (243931832)"
+    },
+    {
+        "contract_data": "06-10-2020",
+        "contract_type": "Aquisição de serviços",
+        "contract_object": "Aquisição de serviços de um assessor técnico no âmbito da operação \"GAV do Porto: atendimento a vítimas de violência doméstica\", com o n.º POISE-03-4437-FSE-000190, a implementar ao abrigo da Tipologia 3.17 - Instrumentos Específicos de Proteção das Vítimas e de Acompanhamento de Agressores na Violência Doméstica, Ação 3.17.1 - Estruturas de atendimento, acompanhamento e apoio especializado a vítimas de violência doméstica e violência de género e sensibilização e produção de materiais nestas áreas, do eixo prioritário 3 - Promover a inclusão social e combater a pobreza e a discriminação do Programa Operacional Inclusão Social e Emprego (PO ISE) do Portugal 2020",
+        "contract_price": "12.750,00 €",
+        "contracting_authority": "Associação Portuguesa de Apoio à Vítima (502547952)",
+        "hired_entity": "Ana Filipa da Costa Machado (260535311)"
+    },
+    {
+        "contract_data": "06-10-2020",
+        "contract_type": "Aquisição de serviços",
+        "contract_object": "Fornecimento de passes destinados aos transportes escolares dos alunos com apoio dos serviços de acção social escolar.",
+        "contract_price": "102.952,38 €",
+        "contracting_authority": "Escola Básica e Secundária de Machico (671001221)",
+        "hired_entity": "SAM - Sociedade de Automóveis da Madeira, Lda (511008503)"
+    },
+    {
+        "contract_data": "06-10-2020",
+        "contract_type": "Aquisição de bens móveis",
+        "contract_object": "Aquisição de Medicamentos Gerais - Tiocolquicosido CPA452019",
+        "contract_price": "1.365,84 €",
+        "contracting_authority": "Administração Regional de Saúde do Algarve, I.P. (503148709)",
+        "hired_entity": "Korangi, S.A. (505322307)"
+    },
+    {
+        "contract_data": "06-10-2020",
+        "contract_type": "Empreitadas de obras públicas",
+        "contract_object": "PO 360/2020 - Expansão da rede de águas residuais do caminho de Culderei - Soajo",
+        "contract_price": "29.246,72 €",
+        "contracting_authority": "Município de Arcos de Valdevez (505211696)",
+        "hired_entity": "NIVERFIX, CONSTRUÇÕES UNIPESSOAL, LDA. (508251044)"
+    },
+    {
+        "contract_data": "06-10-2020",
+        "contract_type": "Aquisição de serviços",
+        "contract_object": "Procedimento por ajuste direto para formação de contrato de prestação de serviços para a elaboração de um projeto de execução (arquitetura e especialidades) no âmbito da requalificação dos pavimentos pedonais e drenagem superficial da Rua dos Lusíadas",
+        "contract_price": "8.150,00 €",
+        "contracting_authority": "Freguesia de Alcântara (501132554)",
+        "hired_entity": "Sacramento Campos - Projectos e Serviços, S.A (503130389)"
+    },
+    {
+        "contract_data": "06-10-2020",
+        "contract_type": "Aquisição de serviços",
+        "contract_object": "Aquisição de fardamento e sinalização tendo em conta as necessidades do Agrupamento",
+        "contract_price": "1.500,00 €",
+        "contracting_authority": "Agrupamento de Escolas de Vila Viçosa (600085805)",
+        "hired_entity": "António Garcia Rosado Bento (188281614)"
+    },
+    {
+        "contract_data": "05-10-2020",
+        "contract_type": "Aquisição de serviços",
+        "contract_object": "Prestação de serviços de consultoria de apoio às atividades da Direção de Gestão de Infraestruturas da Fagar E.M",
+        "contract_price": "37.800,00 €",
+        "contracting_authority": "Fagar - Faro, Gestão de Águas e Resíduos, E. M. (507142217)",
+        "hired_entity": "CADIPRO - Consultoria e Projectos, Lda. (508511763)"
+    },
+    {
+        "contract_data": "06-10-2020",
+        "contract_type": "Aquisição de bens móveis",
+        "contract_object": "ECULIZUMAB 300 MG SOL INJ FR 30 ML IV",
+        "contract_price": "79.180,80 €",
+        "contracting_authority": "Instituto Português de Oncologia do Porto Francisco Gentil, E. P. E. (506362299)",
+        "hired_entity": "Alexion Pharma Spain S.L - Sucursal Portugal (980553768)"
+    },
+    {
+        "contract_data": "06-10-2020",
+        "contract_type": "Aquisição de bens móveis",
+        "contract_object": "Aquisição de equipamentos para aulas práticas para a Faculdade de Medicina da ULisboa",
+        "contract_price": "12.300,00 €",
+        "contracting_authority": "Faculdade Medicina Universidade de Lisboa (502662875)",
+        "hired_entity": "Alfagene, Novas Tecnologias Ciências da Vida, LDA (503387398)"
+    },
+    {
+        "contract_data": "06-10-2020",
+        "contract_type": "Aquisição de bens móveis",
+        "contract_object": "Aquisição de adesivo comum",
+        "contract_price": "4.400,00 €",
+        "contracting_authority": "Administração Regional de Saúde de Lisboa e Vale do Tejo, I. P. (503148776)",
+        "hired_entity": "ESSITY PORTUGAL, LDA (503237612)"
+    },
+    {
+        "contract_data": "06-10-2020",
+        "contract_type": "Aquisição de bens móveis",
+        "contract_object": "Aquisição de algalias de silicone CH 20",
+        "contract_price": "500,00 €",
+        "contracting_authority": "Administração Regional de Saúde de Lisboa e Vale do Tejo, I. P. (503148776)",
+        "hired_entity": "COLOPLAST PORTUGAL, SOCIEDADE UNIPESSOAL, LDA (503989037)"
+    },
+    {
+        "contract_data": "06-10-2020",
+        "contract_type": "Aquisição de bens móveis",
+        "contract_object": "DIV MEDICAMENTOS REFORÇO 20% COVID 19",
+        "contract_price": "5.875,00 €",
+        "contracting_authority": "Centro Hospitalar Tondela-Viseu, E. P. E. (509822940)",
+        "hired_entity": "DLA-Farmacêutica,SA. (503894427)"
+    },
+    {
+        "contract_data": "06-10-2020",
+        "contract_type": "Aquisição de bens móveis",
+        "contract_object": "PROC-SD-32/2019 - Ajuste Direto ao abrigo de Acordo Quadro Singular para\nAquisição de Materiais de Desgaste para a Manutenção das Infraestruturas da\nSIMDOURO - LOTE I",
+        "contract_price": "606,86 €",
+        "contracting_authority": "SIMDOURO - Saneamento do Grande Porto, S. A. (514310103)",
+        "hired_entity": "HIDMA-Hidráulica e Automação, SA. (505044897)"
+    },
+    {
+        "contract_data": "06-10-2020",
+        "contract_type": "Aquisição de bens móveis",
+        "contract_object": "Procedimento ref.ª 21/2020- Aquisição de Equipamentos desportivos \"Zarco\"",
+        "contract_price": "2.323,00 €",
+        "contracting_authority": "Escola Secundária João Gonçalves Zarco, Matosinhos (600018105)",
+        "hired_entity": "Extro2LFA- Moda e Teixeis Promocionais, Lda (513931856)"
+    },
+    {
+        "contract_data": "06-10-2020",
+        "contract_type": "Aquisição de serviços",
+        "contract_object": "Prestação de Serviços de Apoio ao Conselho de Administração",
+        "contract_price": "6.000,00 €",
+        "contracting_authority": "Centro Hospitalar Universitário do Algarve, E. P. E. (510745997)",
+        "hired_entity": "Carla José da Silva Pais Aleluia (167130641)"
+    },
+    {
+        "contract_data": "06-10-2020",
+        "contract_type": "Aquisição de serviços",
+        "contract_object": "N-EFBR - 20203220372 Aquisição de serviços de espaço para formação profissional, com contrato nº 20203220342",
+        "contract_price": "400,00 €",
+        "contracting_authority": "Instituto do Emprego e da Formação Profissional, I. P. (501442600)",
+        "hired_entity": "JUNTA DE FREGUESIA DE ALFÂNDEGA DA FÉ (506342310)"
+    },
+    {
+        "contract_data": "06-10-2020",
+        "contract_type": "Aquisição de bens móveis",
+        "contract_object": "Fornecimento, instalação e manutenção de uma solução de acesso WIFI, no âmbito da iniciativa WIFI4EU",
+        "contract_price": "12.195,12 €",
+        "contracting_authority": "Município de Lamego (506572218)",
+        "hired_entity": "CONTROLINK Unipessoal Lda (513702717)"
+    },
+    {
+        "contract_data": "06-10-2020",
+        "contract_type": "Aquisição de serviços",
+        "contract_object": "Contratação de serviços externos qualificados e especializados para a criação de uma plataforma online de suporte dedicada à IIES GOT TALENT INedv, fundamentando assim a necessidade e o recurso ao presente procedimento, para um trabalho qualificado e profissional no seu desenvolvimento e disponibilização.",
+        "contract_price": "5.000,00 €",
+        "contracting_authority": "Associação de Desenvolvimento Rural Integrado das Terras de Santa Maria (508225736)",
+        "hired_entity": "HOVO COMUNICATIVO, LDA (514641274)"
+    },
+    {
+        "contract_data": "06-10-2020",
         "contract_type": "Aquisição de bens móveis",
         "contract_object": "HASTE MODULAR, COMPONENTE TIBIAL, DE SUBS.FEMORAL E DE CONEXÃO ARTICULAR, CENTRALIZADOR DE CANAL, EXTENSÃO FEMORAL E ANEL DE UNIÃO",
         "contract_price": "17.295,00 €",
@@ -1269,7 +1429,7 @@
         "contract_object": "Vários Medicamentos",
         "contract_price": "57.795,29 €",
         "contracting_authority": "Centro Hospitalar de Setúbal, E. P. E. (507606787)",
-        "hired_entity": "Viv Healthcare Unipessoal (509117961)NOVARTIS FARMA-PROD.FARMACÊUTICOS,SA. (500063524)CELGENE - SOCIEDADE UNIPESSOAL, LDA (507791690)ASTELLAS FARMA, LDA. (502540249)"
+        "hired_entity": "CELGENE - SOCIEDADE UNIPESSOAL, LDA (507791690)Viv Healthcare Unipessoal (509117961)NOVARTIS FARMA-PROD.FARMACÊUTICOS,SA. (500063524)ASTELLAS FARMA, LDA. (502540249)"
     },
     {
         "contract_data": "06-10-2020",
@@ -2269,7 +2429,7 @@
         "contract_object": "VÁRIOS  MEDICAMENTOS",
         "contract_price": "24.824,67 €",
         "contracting_authority": "Centro Hospitalar de Setúbal, E. P. E. (507606787)",
-        "hired_entity": "Novartis Farma - Produtos Farmacêuticos, S.A. (500063524)SANOFI - PRODUTOS FARMACÊUTICOS, LDA. (500134960)Pfizer Biofarmaceutica, Sociedade Unipessoal Lda. (513300376)"
+        "hired_entity": "Novartis Farma - Produtos Farmacêuticos, S.A. (500063524)Pfizer Biofarmaceutica, Sociedade Unipessoal Lda. (513300376)SANOFI - PRODUTOS FARMACÊUTICOS, LDA. (500134960)"
     },
     {
         "contract_data": "06-10-2020",
@@ -2592,12 +2752,12 @@
         "hired_entity": "Unilfarma (500293023)"
     },
     {
-        "contract_data": "06-10-2020",
-        "contract_type": "Aquisição de bens móveis",
-        "contract_object": "AQUISIÇÃO DE SOFTWARE NA ÁREA DOS SITEMAS DE INFORMAÇÃO - ANTIVIRUS",
-        "contract_price": "2.360,00 €",
-        "contracting_authority": "Município de Ponta do Sol (511235461)",
-        "hired_entity": "Acin -  iCloud Solutions, Lda (511135610)"
+        "contract_data": " ",
+        "contract_type": " ",
+        "contract_object": " ",
+        "contract_price": " ",
+        "contracting_authority": " ",
+        "hired_entity": " "
     },
     {
         "contract_data": "06-10-2020",
@@ -2785,7 +2945,7 @@
     },
     {
         "contract_data": "06-10-2020",
-        "contract_type": "Aquisição de serviçosAquisição de bens móveis",
+        "contract_type": "Aquisição de bens móveisAquisição de serviços",
         "contract_object": "Aquisição e montagem de móveis de arquivo, pela SRNOM",
         "contract_price": "3.285,00 €",
         "contracting_authority": "Ordem dos Médicos (500984492)",
